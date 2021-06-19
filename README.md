@@ -1,3 +1,3 @@
 # login-lecture
 
-バックエンド味わい
+nodejs + expressの環境作ってみよう
