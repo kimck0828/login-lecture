@@ -10,4 +10,7 @@ app.use("/", require("./src/routes/home/router"));
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
+// static
+app.use(express.static(`${__dirname}/src/public`));
+
 module.exports = app;
