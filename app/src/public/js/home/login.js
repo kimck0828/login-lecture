@@ -2,9 +2,10 @@
 
 const id = document.querySelector("#id");
 const psword = document.querySelector("#psword");
-const loginBtn = document.querySelector("button");
+const signInBtn = document.querySelector("#signIn");
+const signUpBtn = document.querySelector("#signUp");
 
-loginBtn.addEventListener("click", () => {
+signInBtn.addEventListener("click", () => {
   const req = {
     id: id.value,
     psword: psword.value,
@@ -25,4 +26,8 @@ loginBtn.addEventListener("click", () => {
       } else [alert(res.msg)];
     })
     .catch((err) => console.error("エラー発生"));
+});
+
+signUpBtn.addEventListener("click", () => {
+  console.log("sign up");
 });
