@@ -27,6 +27,14 @@ class UserStorage {
       return data;
     }, {});
   }
+
+  static save(req) {
+    const users = this.#users;
+    users.id.push(req.id);
+    users.psword.push(req.psword);
+    users.name.push(req.name);
+    console.log(this.#users);
+  }
 }
 
 module.exports = UserStorage;

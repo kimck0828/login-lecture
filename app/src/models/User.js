@@ -19,6 +19,11 @@ class User {
       return { success: false, msg: "存在しないID" };
     }
   }
+
+  register() {
+    UserStorage.save(this.body);
+    return { success: true };
+  }
 }
 
 module.exports = User;
