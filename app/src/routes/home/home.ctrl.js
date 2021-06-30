@@ -1,6 +1,7 @@
 "use strict";
 
 const UserStorage = require("../../models/UserStorage");
+const User = require("../../models/User");
 
 const output = {
   home: (req, res) => {
@@ -16,19 +17,9 @@ const process = {
     const id = req.body.id,
       psword = req.body.psword;
     console.log(`id:${id}, psword:${psword}`);
-    console.log(UserStorage.getUsers("id", "psword", "name"));
 
-    // if (users.id.includes(id)) {
-    //   if (users.psword[users.id.indexOf(id)] === psword) {
-    //     return res.json({
-    //       success: true,
-    //     });
-    //   }
-    // }
-    // return res.json({
-    //   success: false,
-    //   msg: "ログイン失敗",
-    // });
+    const user = new User(req.body);
+    return res.json(user.login());
   },
 };
 
