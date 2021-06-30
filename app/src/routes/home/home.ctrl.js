@@ -21,6 +21,19 @@ const process = {
     const user = new User(req.body);
     return res.json(user.login());
   },
+
+  register: (req, res) => {
+    const id = req.body.id,
+      psword = req.body.psword,
+      confirmPsword = req.body.confirmPsword,
+      name = req.body.name;
+    console.log(
+      `id:${id}, psword:${psword}, confirmPsword:${confirmPsword}, name:${name}`
+    );
+
+    // const user = new User(req.body);
+    // return res.json(user.login());
+  },
 };
 
 module.exports = { output, process };
