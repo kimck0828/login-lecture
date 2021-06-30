@@ -10,4 +10,12 @@ loginBtn.addEventListener("click", () => {
     psword: psword.value,
   };
   console.log(`id:${req.id}, psword:${req.psword}`);
+
+  fetch("/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(req),
+  });
 });
