@@ -21,8 +21,12 @@ class User {
   }
 
   register() {
-    UserStorage.save(this.body);
-    return { success: true };
+    try {
+      const res = UserStorage.save(this.body);
+      return res;
+    } catch (e) {
+      return { success: false, msg: e };
+    }
   }
 }
 
