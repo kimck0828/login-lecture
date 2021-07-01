@@ -37,18 +37,10 @@ signUpBtn.addEventListener("click", () => {
   const confirmPsword = document.querySelector("#signup_confirm-psword");
   const name = document.querySelector("#signup_name");
 
-  if (!id.value) {
-    return alert("IDを入力して");
-  }
-  if (!psword.value) {
-    return alert("パスワードを入力して");
-  }
-  if (psword.value != confirmPsword.value) {
-    return alert("パスワードが一致しない");
-  }
   const req = {
     id: id.value,
     psword: psword.value,
+    confirmPsword: confirmPsword.value,
     name: name.value,
   };
 
