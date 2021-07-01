@@ -7,7 +7,7 @@ class User {
     this.body = body;
   }
 
-  login() {
+  async login() {
     const reqId = this.body.id;
     const reqPsword = this.body.psword;
     if (!reqId) {
@@ -16,19 +16,23 @@ class User {
       return { success: false, msg: "パスワードを入力して" };
     }
 
-    const { id, psword } = UserStorage.getUserInfo(reqId);
-    if (id) {
-      if (id === reqId && psword === reqPsword) {
-        return { success: true };
+    try {
+      const { id, psword } = await UserStorage.getUserInfo(reqId);
+      if (id) {
+        if (id === reqId && psword === reqPsword) {
+          return { success: true };
+        } else {
+          return { success: false, msg: "パスワードが一致しない" };
+        }
       } else {
-        return { success: false, msg: "パスワードが一致しない" };
+        return { success: false, msg: "存在しないID" };
       }
-    } else {
-      return { success: false, msg: "存在しないID" };
+    } catch (err) {
+      return { success: false, msg: e };
     }
   }
 
-  register() {
+  async register() {
     const reqId = this.body.id;
     const reqPsword = this.body.psword;
     const confirmPsword = this.body.confirmPsword;
@@ -44,7 +48,7 @@ class User {
     }
 
     try {
-      const res = UserStorage.save(this.body);
+      const res = await UserStorage.save(this.body);
       return res;
     } catch (e) {
       return { success: false, msg: e };

@@ -13,16 +13,16 @@ const output = {
 };
 
 const process = {
-  login: (req, res) => {
+  login: async (req, res) => {
     const id = req.body.id,
       psword = req.body.psword;
     console.log(`id:${id}, psword:${psword}`);
 
     const user = new User(req.body);
-    return res.json(user.login());
+    return res.json(await user.login());
   },
 
-  register: (req, res) => {
+  register: async (req, res) => {
     const id = req.body.id,
       psword = req.body.psword,
       confirmPsword = req.body.confirmPsword,
@@ -32,7 +32,7 @@ const process = {
     );
 
     const user = new User(req.body);
-    return res.json(user.register());
+    return res.json(await user.register());
   },
 };
 
