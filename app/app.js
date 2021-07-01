@@ -3,6 +3,8 @@
 const express = require("express");
 const app = express();
 
+require("dotenv").config();
+
 // WEB set
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
