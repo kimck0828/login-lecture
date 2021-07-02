@@ -1,9 +1,10 @@
 "use strict";
 
 const router = require("express").Router();
+const reqlib = require("app-root-path").require;
 
 // controller
-const ctrl = require("./home.ctrl");
+const ctrl = reqlib("/src/routes/home/home.ctrl");
 
 router.get("/", ctrl.output.home);
 router.get("/login", ctrl.output.login);

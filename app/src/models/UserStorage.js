@@ -1,6 +1,6 @@
 "use strict";
-const db = require("../config/db");
-const util = require("util");
+const reqlib = require("app-root-path").require;
+const db = reqlib("/src/config/db");
 
 class UserStorage {
   static getUserInfo(id) {
@@ -22,7 +22,6 @@ class UserStorage {
 
   static async save(req) {
     const { id } = await this.getUserInfo(req.id);
-    console.log(id);
     if (id) {
       throw "存在するID";
     }

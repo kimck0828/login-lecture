@@ -1,6 +1,6 @@
 "use strict";
-
-const UserStorage = require("./UserStorage");
+const reqlib = require("app-root-path").require;
+const UserStorage = reqlib("/src/models/UserStorage");
 
 class User {
   constructor(body) {

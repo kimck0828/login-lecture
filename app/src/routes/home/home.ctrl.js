@@ -1,7 +1,8 @@
 "use strict";
 
-const UserStorage = require("../../models/UserStorage");
-const User = require("../../models/User");
+const reqlib = require("app-root-path").require;
+const UserStorage = reqlib("/src/models/UserStorage");
+const User = reqlib("/src/models/User");
 
 const output = {
   home: (req, res) => {
@@ -16,7 +17,6 @@ const process = {
   login: async (req, res) => {
     const id = req.body.id,
       psword = req.body.psword;
-    console.log(`id:${id}, psword:${psword}`);
 
     const user = new User(req.body);
     return res.json(await user.login());
@@ -27,9 +27,6 @@ const process = {
       psword = req.body.psword,
       confirmPsword = req.body.confirmPsword,
       name = req.body.name;
-    console.log(
-      `id:${id}, psword:${psword}, confirmPsword:${confirmPsword}, name:${name}`
-    );
 
     const user = new User(req.body);
     return res.json(await user.register());
