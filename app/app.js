@@ -1,9 +1,10 @@
 "use strict";
 
+const rootDir = require("app-root-path");
+const reqlib = rootDir.require;
+
 const express = require("express");
 const app = express();
-
-const rootDir = require("app-root-path");
 
 // config
 require("dotenv").config();
