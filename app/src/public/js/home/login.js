@@ -11,7 +11,6 @@ signInBtn.addEventListener("click", () => {
     id: id.value,
     psword: psword.value,
   };
-  console.log(JSON.stringify(req));
 
   fetch("/login", {
     method: "POST",
@@ -30,8 +29,6 @@ signInBtn.addEventListener("click", () => {
 });
 
 signUpBtn.addEventListener("click", () => {
-  console.log("sign up");
-
   const id = document.querySelector("#signup_id");
   const psword = document.querySelector("#signup_psword");
   const confirmPsword = document.querySelector("#signup_confirm-psword");
@@ -43,8 +40,6 @@ signUpBtn.addEventListener("click", () => {
     confirmPsword: confirmPsword.value,
     name: name.value,
   };
-
-  console.log(JSON.stringify(req));
 
   fetch("/register", {
     method: "POST",
@@ -59,5 +54,5 @@ signUpBtn.addEventListener("click", () => {
         location.href = "/login";
       } else [alert(res.msg)];
     })
-    .catch((err) => console.error("sサインアップ　エラー発生"));
+    .catch((err) => console.error("サインアップ　エラー発生"));
 });

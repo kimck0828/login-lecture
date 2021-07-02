@@ -1,7 +1,6 @@
 "use strict";
 const db = require("../config/db");
 const util = require("util");
-const { resolveInclude } = require("ejs");
 
 class UserStorage {
   static getUserInfo(id) {

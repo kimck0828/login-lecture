@@ -28,7 +28,7 @@ class User {
         return { success: false, msg: "存在しないID" };
       }
     } catch (err) {
-      return { success: false, msg: e };
+      return { success: false, msg: err };
     }
   }
 
@@ -50,8 +50,8 @@ class User {
     try {
       const res = await UserStorage.save(this.body);
       return res;
-    } catch (e) {
-      return { success: false, msg: e };
+    } catch (err) {
+      return { success: false, msg: err };
     }
   }
 }
